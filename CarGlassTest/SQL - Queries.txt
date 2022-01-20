@@ -1,0 +1,51 @@
+1. Todas las columnas de la tabla "Persons"
+
+SELECT * FROM dbo.Persons;
+
+2. Todas las filas de la tabla "Persons" donde la columna "FirstName" es "Peter"
+
+SELECT * FROM dbo.Persons
+WHERE FirstName = 'Peter';
+
+3. Todas las filas de la tabla "Persons" donde la columna "FirstName" comienza por "a"
+
+SELECT * FROM dbo.Persons
+WHERE FirstName like 'a%';
+
+4. Todas las filas de la tabla "Persons" donde la columna "FirstName" es "Peter" y la columna "LastName" es "Jackson"
+
+SELECT * FROM dbo.Persons
+WHERE FirstName = 'Peter' AND LastName = 'Jackson';
+
+5. Todos los nombres de la columna "FirstName" sin repetirlos.
+
+SELECT FirstName FROM dbo.Persons
+GROUP BY FirstName;
+
+6. Todas las filas de la tabla "Persons" ordenadas descendentemente por "FirstName"
+
+SELECT * FROM dbo.Persons
+ORDER BY FirstName DESC;
+
+7. Insertar un registro nuevo en una tabla "Persons"
+
+INSERT INTO dbo.Persons(FirstName, LastName)
+VALUES ('Quecu', 'Lote');
+
+8. Modificar el valor "FirstName" a "Jack" en la tabla "Persons" cuando el campo "id" es 7
+
+UPDATE dbo.Persons SET FirstName = 'Jack' WHERE id = '7';
+
+9. Eliminar las filas de la tabla "Persons" que tenga como "FirstName" a "Peter"
+
+DELETE FROM dbo.Persons WHERE FirstName = 'Peter';
+
+10. Obtener el total de registros de la tabla "Persons"
+
+SELECT count(*) FROM dbo.Persons;
+
+11. Hacer un join entre el campo "id" de la tabla "Persons" y el campo "PersonId" de la tabla "Contacts" para obtener
+todos los teléfonos de "Peter"
+
+SELECT dbo.Contacts.Phone FROM dbo.Contacts
+INNER JOIN dbo.Persons ON dbo.Contacts.PersonId = dbo.Persons.id;
